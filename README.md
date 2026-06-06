@@ -41,3 +41,9 @@ support-widget/
 ## مجوز
 
 GPL v2 or later
+
+---
+
+## طراح
+
+[سهند رضوان](https://github.com/sahandse)

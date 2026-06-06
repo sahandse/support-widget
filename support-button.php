@@ -4,7 +4,7 @@
  * Plugin URI:  https://github.com/sahandse/support-widget
  * Description: دکمه شناور پشتیبانی با پشتیبانی از تلگرام، واتس‌اپ، بله، روبیکا و ایتا
  * Version:     1.0.0
- * Author:      Sahand
+ * Author:      سهند رضوان
  * License:     GPL v2 or later
  * Text Domain: support-button
  */
