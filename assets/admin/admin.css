@@ -1,0 +1,331 @@
+/* ── Layout ───────────────────────────────────────── */
+.spb-wrap {
+	max-width: 860px;
+}
+.spb-header {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	margin: 20px 0 4px;
+}
+.spb-header h1 {
+	margin: 0;
+	font-size: 1.4rem;
+}
+.spb-ver {
+	font-size: 11px;
+	color: #888;
+	background: #f0f0f0;
+	border-radius: 4px;
+	padding: 2px 7px;
+}
+
+/* ── Nav tabs ─────────────────────────────────────── */
+.spb-nav {
+	border-bottom: 1px solid #c3c4c7;
+}
+.spb-nav .nav-tab {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+}
+
+/* ── Badge ────────────────────────────────────────── */
+.spb-badge {
+	background: #6b7280;
+	color: #fff;
+	border-radius: 10px;
+	padding: 1px 7px;
+	font-size: 11px;
+	font-weight: 600;
+}
+.spb-badge-blue { background: #2563eb; }
+
+/* ── Panel ────────────────────────────────────────── */
+.spb-panel {
+	background: #fff;
+	border: 1px solid #c3c4c7;
+	border-top: none;
+	border-radius: 0 0 4px 4px;
+	padding: 24px;
+}
+
+/* ── Section ──────────────────────────────────────── */
+.spb-section {
+	margin-bottom: 28px;
+	padding-bottom: 24px;
+	border-bottom: 1px solid #f0f0f0;
+}
+.spb-section:last-child {
+	margin-bottom: 0;
+	padding-bottom: 0;
+	border-bottom: none;
+}
+.spb-sec-title {
+	margin: 0 0 14px;
+	font-size: .95rem;
+	font-weight: 600;
+	color: #1d2327;
+}
+.spb-hint {
+	color: #6b7280;
+	font-size: 13px;
+	margin: 0 0 16px;
+}
+.spb-field {
+	margin-top: 12px;
+}
+.spb-field label {
+	display: block;
+	font-weight: 500;
+	margin-bottom: 5px;
+}
+.spb-sub {
+	margin-top: 14px;
+	padding: 16px;
+	background: #f9fafb;
+	border-radius: 6px;
+	border: 1px solid #e5e7eb;
+}
+
+/* ── Logo uploader ────────────────────────────────── */
+.spb-logo-area {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	flex-wrap: wrap;
+}
+.spb-logo-preview {
+	width: 64px;
+	height: 64px;
+	border-radius: 50%;
+	border: 2px dashed #d1d5db;
+	background: #f3f4f6;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	flex-shrink: 0;
+}
+.spb-logo-preview img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 50%;
+}
+.spb-logo-btns {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+/* ── Animation picker ─────────────────────────────── */
+.spb-anim-row {
+	display: flex;
+	gap: 12px;
+	flex-wrap: wrap;
+}
+.spb-anim-opt {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 8px;
+	cursor: pointer;
+	padding: 12px 18px;
+	border: 2px solid #e5e7eb;
+	border-radius: 10px;
+	background: #f9fafb;
+	transition: border-color .15s, background .15s;
+	font-size: 13px;
+}
+.spb-anim-opt input[type="radio"] {
+	display: none;
+}
+.spb-anim-opt.is-active,
+.spb-anim-opt:hover {
+	border-color: #2563eb;
+	background: #eff6ff;
+}
+
+/* mini button previews */
+.spb-anim-demo {
+	width: 36px;
+	height: 36px;
+	border-radius: 50%;
+	background: #2563eb;
+	display: block;
+}
+.spb-anim-none {}
+.spb-anim-pulse     { animation: sadm-pulse     2.6s ease-in-out infinite; }
+.spb-anim-bounce    { animation: sadm-bounce    2s   ease-in-out infinite; }
+.spb-anim-attention { animation: sadm-attention 4s   ease-in-out infinite; }
+
+@keyframes sadm-pulse {
+	0%,100% { box-shadow: 0 0 0 0 rgba(37,99,235,.5); }
+	55%      { box-shadow: 0 0 0 10px rgba(37,99,235,0); }
+}
+@keyframes sadm-bounce {
+	0%,100% { transform: translateY(0); }
+	40%      { transform: translateY(-8px); }
+	60%      { transform: translateY(-4px); }
+}
+@keyframes sadm-attention {
+	0%,80%,100% { transform: rotate(0); }
+	85%  { transform: rotate(-12deg); }
+	90%  { transform: rotate(12deg); }
+	95%  { transform: rotate(-6deg); }
+	98%  { transform: rotate(6deg); }
+}
+
+/* ── Position picker ──────────────────────────────── */
+.spb-pos-row {
+	display: flex;
+	gap: 12px;
+}
+.spb-pos-opt {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	cursor: pointer;
+	padding: 10px 20px;
+	border: 2px solid #e5e7eb;
+	border-radius: 8px;
+	background: #f9fafb;
+	font-size: 13px;
+	transition: border-color .15s, background .15s;
+}
+.spb-pos-opt input[type="radio"] {
+	display: none;
+}
+.spb-pos-opt.is-active,
+.spb-pos-opt:hover {
+	border-color: #2563eb;
+	background: #eff6ff;
+}
+
+/* ── Toggle switch ────────────────────────────────── */
+.spb-toggle-row {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	cursor: pointer;
+}
+.spb-toggle-row input[type="checkbox"] {
+	display: none;
+}
+.spb-sw {
+	position: relative;
+	width: 40px;
+	height: 22px;
+	background: #d1d5db;
+	border-radius: 11px;
+	transition: background .2s;
+	flex-shrink: 0;
+}
+.spb-sw::after {
+	content: '';
+	position: absolute;
+	top: 3px;
+	left: 3px;
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+	background: #fff;
+	transition: transform .2s;
+	box-shadow: 0 1px 3px rgba(0,0,0,.2);
+}
+.spb-toggle-row input:checked ~ .spb-sw {
+	background: #2563eb;
+}
+.spb-toggle-row input:checked ~ .spb-sw::after {
+	transform: translateX(18px);
+}
+
+/* ── Schedule / time ──────────────────────────────── */
+.spb-time-row {
+	display: flex;
+	gap: 20px;
+	flex-wrap: wrap;
+	margin-bottom: 14px;
+}
+.spb-time-row label {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 13px;
+}
+.spb-days {
+	display: flex;
+	gap: 8px;
+	flex-wrap: wrap;
+	margin-bottom: 14px;
+}
+.spb-day {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	font-size: 13px;
+	cursor: pointer;
+}
+
+/* ── Channel table ────────────────────────────────── */
+.spb-ch-table {
+	table-layout: fixed;
+}
+.spb-ch-table .col-hnd { width: 32px; }
+.spb-ch-table .col-net { width: 200px; }
+.spb-ch-table .col-clr { width: 60px; }
+.spb-ch-table .col-del { width: 50px; }
+
+.spb-handle {
+	cursor: grab;
+	text-align: center;
+	color: #9ca3af;
+	font-size: 18px;
+	user-select: none;
+}
+.spb-row.dragging {
+	opacity: .4;
+}
+.spb-row.drag-over td {
+	background: #eff6ff;
+}
+.spb-td input[type="text"],
+.spb-td input[type="url"],
+.spb-td select {
+	width: 100%;
+	box-sizing: border-box;
+}
+.spb-custom-name {
+	margin-top: 5px;
+}
+.spb-color-inp {
+	width: 40px;
+	height: 30px;
+	padding: 1px;
+	border: 1px solid #d1d5db;
+	border-radius: 4px;
+	cursor: pointer;
+}
+.spb-row-footer {
+	margin-top: 12px;
+}
+
+/* ── Stats table ──────────────────────────────────── */
+.spb-stats-tbl .spb-cnt {
+	font-size: 16px;
+	font-weight: 700;
+	color: #2563eb;
+}
+.spb-url-sm {
+	color: #9ca3af;
+	font-size: 11px;
+}
+.spb-reset-form {
+	margin-top: 16px;
+}
+
+/* ── Save button ──────────────────────────────────── */
+.spb-save {
+	margin-top: 20px !important;
+}

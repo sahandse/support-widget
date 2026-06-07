@@ -4,11 +4,11 @@
 	var cfg = window.spbConfig || {};
 
 	document.addEventListener('DOMContentLoaded', function () {
-		var widget     = document.getElementById('spb-widget');
-		var toggle     = document.getElementById('spb-toggle');
-		var menu       = document.getElementById('spb-menu');
-		var bubble     = document.getElementById('spb-bubble');
-		var offlineEl  = document.getElementById('spb-offline-msg');
+		var widget    = document.getElementById('spb-widget');
+		var toggle    = document.getElementById('spb-toggle');
+		var menu      = document.getElementById('spb-menu');
+		var bubble    = document.getElementById('spb-bubble');
+		var offlineEl = document.getElementById('spb-offline');
 
 		if (!toggle || !menu) return;
 
@@ -32,14 +32,14 @@
 			var delay = Math.max(0, (cfg.bubble.delay || 0)) * 1000;
 			setTimeout(function () {
 				if (menu.getAttribute('aria-hidden') !== 'false') {
-					bubble.classList.add('spb-bubble-visible');
+					bubble.classList.add('is-open');
 				}
 			}, delay);
 
-			var dismissBtn = bubble.querySelector('.spb-bubble-dismiss');
+			var dismissBtn = bubble.querySelector('.spb-bubble-x');
 			if (dismissBtn) {
 				dismissBtn.addEventListener('click', function () {
-					bubble.classList.remove('spb-bubble-visible');
+					bubble.classList.remove('is-open');
 				});
 			}
 		}
@@ -88,7 +88,7 @@
 			menu.setAttribute('aria-hidden', 'false');
 			toggle.setAttribute('aria-expanded', 'true');
 			toggle.setAttribute('aria-label', 'بستن منوی پشتیبانی');
-			if (bubble) bubble.classList.remove('spb-bubble-visible');
+			if (bubble) bubble.classList.remove('is-open');
 		}
 
 		function closeMenu() {
@@ -109,9 +109,9 @@
 		}
 
 		function isOnlineNow(schedule) {
-			var nowUtcMs  = Date.now();
-			var tzMs      = (cfg.tzOffset || 0) * 60 * 1000;
-			var local     = new Date(nowUtcMs + tzMs);
+			var nowUtcMs = Date.now();
+			var tzMs     = (cfg.tzOffset || 0) * 60 * 1000;
+			var local    = new Date(nowUtcMs + tzMs);
 
 			var day     = local.getUTCDay();
 			var current = local.getUTCHours() * 60 + local.getUTCMinutes();
