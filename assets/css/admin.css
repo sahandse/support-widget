@@ -1,0 +1,19 @@
+/* استایل صفحه تنظیمات افزونه */
+.support-widget-admin .support-widget-channels th {
+	width: 120px;
+}
+
+.support-widget-admin .sw-channel-toggle {
+	display: inline-block;
+	margin-bottom: 8px;
+	font-weight: 600;
+}
+
+.support-widget-admin .support-widget-channels input[type="text"] {
+	display: block;
+	max-width: 420px;
+}
+
+.support-widget-admin h2 {
+	margin-top: 24px;
+}

@@ -1,0 +1,13 @@
+# سیستم‌عامل
+.DS_Store
+Thumbs.db
+
+# ویرایشگرها
+.idea/
+.vscode/
+*.swp
+
+# وابستگی‌ها و خروجی‌های ساخت
+/vendor/
+/node_modules/
+*.log
