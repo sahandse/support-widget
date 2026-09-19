@@ -3,7 +3,7 @@
  * Plugin Name: دکمه پشتیبانی شناور
  * Plugin URI:  https://github.com/sahandse/support-widget
  * Description: دکمه شناور پشتیبانی با انیمیشن، فونت وزیر، بارگذاری لوگو، ساعت کاری، آمار کلیک
- * Version:     4.0.0
+ * Version:     4.1.0
  * Author:      سهند رضوان
  * License:     GPL v2 or later
  * Text Domain: support-button
@@ -11,7 +11,7 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-define( 'SUPPORT_BTN_VERSION', '4.0.0' );
+define( 'SUPPORT_BTN_VERSION', '4.1.0' );
 define( 'SUPPORT_BTN_URL',     plugin_dir_url( __FILE__ ) );
 
 /* ════════════════════════════════════════════════════════════════
@@ -78,12 +78,17 @@ function support_btn_should_show() {
 
 add_action( 'admin_menu', 'support_btn_admin_menu' );
 function support_btn_admin_menu() {
+	if ( function_exists( 's_store_register_submenu' ) ) {
+		s_store_register_submenu( 'support-button', 'دکمه پشتیبانی', 'support_btn_settings_page', 'manage_options', 'دکمه پشتیبانی' );
+		return;
+	}
 	add_options_page( 'دکمه پشتیبانی', 'دکمه پشتیبانی', 'manage_options', 'support-button', 'support_btn_settings_page' );
 }
 
 add_action( 'admin_enqueue_scripts', 'support_btn_admin_enqueue' );
 function support_btn_admin_enqueue( $hook ) {
-	if ( $hook !== 'settings_page_support-button' ) return;
+	$page = isset( $_GET['page'] ) ? sanitize_key( wp_unslash( $_GET['page'] ) ) : '';
+	if ( 'support-button' !== $page && 'settings_page_support-button' !== $hook ) return;
 	wp_enqueue_media();
 	wp_enqueue_style(  'support-btn-admin', SUPPORT_BTN_URL . 'assets/admin/admin.css', [], SUPPORT_BTN_VERSION );
 	wp_enqueue_script( 'support-btn-admin', SUPPORT_BTN_URL . 'assets/admin/admin.js', [ 'jquery' ], SUPPORT_BTN_VERSION, true );
@@ -149,7 +154,8 @@ add_action( 'admin_post_support_btn_reset_stats', function () {
 	if ( ! current_user_can( 'manage_options' ) ) wp_die( 'Forbidden', 403 );
 	check_admin_referer( 'support_btn_reset_stats' );
 	delete_option( 'support_btn_stats' );
-	wp_safe_redirect( add_query_arg( [ 'page' => 'support-button', 'spb-tab' => 'stats', 'reset' => '1' ], admin_url( 'options-general.php' ) ) );
+	$base_url = function_exists( 's_store_register_submenu' ) ? admin_url( 'admin.php' ) : admin_url( 'options-general.php' );
+	wp_safe_redirect( add_query_arg( [ 'page' => 'support-button', 'spb-tab' => 'stats', 'reset' => '1' ], $base_url ) );
 	exit;
 } );
 
